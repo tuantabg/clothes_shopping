@@ -269,10 +269,6 @@ class DatabaseSeeder extends Seeder
         DB::table('product_images')->insert([
             [
                 'product_id' => 1,
-                'path' => 'product-1.jpg',
-            ],
-            [
-                'product_id' => 1,
                 'path' => 'product-1-1.jpg',
             ],
             [
@@ -281,35 +277,143 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'product_id' => 2,
-                'path' => 'product-2.jpg',
+                'path' => 'product-2-1.jpg',
+            ],
+            [
+                'product_id' => 2,
+                'path' => 'product-2-2.jpg',
             ],
             [
                 'product_id' => 3,
-                'path' => 'product-3.jpg',
+                'path' => 'product-3-1.jpg',
+            ],
+            [
+                'product_id' => 3,
+                'path' => 'product-3-2.jpg',
             ],
             [
                 'product_id' => 4,
-                'path' => 'product-4.jpg',
+                'path' => 'product-4-1.jpg',
+            ],
+            [
+                'product_id' => 4,
+                'path' => 'product-4-2.jpg',
             ],
             [
                 'product_id' => 5,
-                'path' => 'product-5.jpg',
+                'path' => 'product-5-1.jpg',
+            ],
+            [
+                'product_id' => 5,
+                'path' => 'product-5-2.jpg',
             ],
             [
                 'product_id' => 6,
-                'path' => 'product-6.jpg',
+                'path' => 'product-6-1.jpg',
+            ],
+            [
+                'product_id' => 6,
+                'path' => 'product-6-2.jpg',
             ],
             [
                 'product_id' => 7,
-                'path' => 'product-7.jpg',
+                'path' => 'product-7-1.jpg',
+            ],
+            [
+                'product_id' => 7,
+                'path' => 'product-7-2.jpg',
             ],
             [
                 'product_id' => 8,
-                'path' => 'product-8.jpg',
+                'path' => 'product-8-1.jpg',
+            ],
+            [
+                'product_id' => 8,
+                'path' => 'product-8-2.jpg',
             ],
             [
                 'product_id' => 9,
-                'path' => 'product-9.jpg',
+                'path' => 'product-9-1.jpg',
+            ],
+            [
+                'product_id' => 9,
+                'path' => 'product-9-2.jpg',
+            ],
+            [
+                'product_id' => 10,
+                'path' => 'product-10-1.jpg',
+            ],
+            [
+                'product_id' => 10,
+                'path' => 'product-10-2.jpg',
+            ],
+            [
+                'product_id' => 11,
+                'path' => 'product-11-1.jpg',
+            ],
+            [
+                'product_id' => 11,
+                'path' => 'product-11-2.jpg',
+            ],
+            [
+                'product_id' => 12,
+                'path' => 'product-12-1.jpg',
+            ],
+            [
+                'product_id' => 12,
+                'path' => 'product-12-2.jpg',
+            ],
+            [
+                'product_id' => 13,
+                'path' => 'product-13-1.jpg',
+            ],
+            [
+                'product_id' => 13,
+                'path' => 'product-13-2.jpg',
+            ],
+            [
+                'product_id' => 14,
+                'path' => 'product-14-1.jpg',
+            ],
+            [
+                'product_id' => 14,
+                'path' => 'product-14-2.jpg',
+            ],
+            [
+                'product_id' => 15,
+                'path' => 'product-15-1.jpg',
+            ],
+            [
+                'product_id' => 15,
+                'path' => 'product-15-2.jpg',
+            ],
+            [
+                'product_id' => 16,
+                'path' => 'product-16-1.jpg',
+            ],
+            [
+                'product_id' => 16,
+                'path' => 'product-16-2.jpg',
+            ],
+            [
+                'product_id' => 16,
+                'path' => 'product-16-3.jpg',
+            ],
+            [
+                'product_id' => 16,
+                'path' => 'product-16-4.jpg',
+            ],
+            [
+                'product_id' => 16,
+                'path' => 'product-16-5.jpg',
+            ],
+            [
+                'product_id' => 16,
+                'path' => 'product-16-6.jpg',
+            ],
+            [
+                'product_id' => 16,
+                'path' => 'product-16-7.jpg',
             ],
         ]);
 

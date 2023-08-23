@@ -4232,22 +4232,22 @@ table .product-thumbnail img {
           transform: translateY(-50%);
 }
 
-.product-rate {
-  background-image: url("../imgs/theme/rating-stars.png");
-  background-position: 0 -12px;
-  background-repeat: repeat-x;
-  height: 12px;
-  width: 60px;
-  transition: all 0.5s ease-out 0s;
-  -webkit-transition: all 0.5s ease-out 0s;
-}
+/*.product-rate {*/
+/*  background-image: url("../imgs/theme/rating-stars.png");*/
+/*  background-position: 0 -12px;*/
+/*  background-repeat: repeat-x;*/
+/*  height: 12px;*/
+/*  width: 60px;*/
+/*  transition: all 0.5s ease-out 0s;*/
+/*  -webkit-transition: all 0.5s ease-out 0s;*/
+/*}*/
 
-.product-rating {
-  height: 12px;
-  background-repeat: repeat-x;
-  background-image: url("../imgs/theme/rating-stars.png");
-  background-position: 0 0;
-}
+/*.product-rating {*/
+/*  height: 12px;*/
+/*  background-repeat: repeat-x;*/
+/*  background-image: url("../imgs/theme/rating-stars.png");*/
+/*  background-position: 0 0;*/
+/*}*/
 
 .detail-info .product-price ins {
   font-size: 30px;

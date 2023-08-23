@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('client.index');
 });
 
-//Route::get('/', function (\App\Service\Product\ProductServiceInterface $productService) {
-//    return $productService->find(1);
-//});
+Route::get('/shop/product/{id}', [\App\Http\Controllers\Client\ShopController::class, 'show']);
+
+
