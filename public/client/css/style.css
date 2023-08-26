@@ -2506,6 +2506,28 @@ ol {
 	border-radius: 50%;
 }
 
+.specification-table table tr td .cs-blue,
+.specification-table table tr td .cs-yellow,
+.specification-table table tr td .cs-violet {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: #252525;
+    border-radius: 50%;
+}
+
+.specification-table table tr td .cs-blue {
+    background: #2773BE;
+}
+
+.specification-table table tr td .cs-yellow {
+    background: #EEEE21;
+}
+
+.specification-table table tr td .cs-violet {
+    background: #8230E3;
+}
+
 .customer-review-option {
 	padding-top: 55px;
 }

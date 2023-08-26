@@ -240,23 +240,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
                                     <div class="product-content">
-                                        <div class="row">
-                                            <div class="col-lg-7">
-                                                <h5>Introduction</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                                <h5>Features</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                            </div>
-                                            <div class="col-lg-5">
-                                                <img src="client/img/product-single/tab-desc.jpg" alt="">
-                                            </div>
-                                        </div>
+                                        {!! $product->description !!}
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="tab-2" role="tabpanel">
@@ -266,21 +250,21 @@
                                                 <td class="p-catagory">Customer Rating</td>
                                                 <td>
                                                     <div class="pd-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <span>(5)</span>
+                                                        @for($i = 1; $i <= 5; $i++)
+                                                            @if($i <= $product->avgRating)
+                                                                <i class="fa fa-star"></i>
+                                                            @else
+                                                                <i class="fa fa-star-o"></i>
+                                                            @endif
+                                                        @endfor
+                                                        <span>({{ count($product->productComments) }})</span>
                                                     </div>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="p-catagory">Price</td>
                                                 <td>
-                                                    <div class="p-price">
-                                                        $495.00
-                                                    </div>
+                                                    <div class="p-price">${{ $product->price }}</div>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -294,31 +278,37 @@
                                             <tr>
                                                 <td class="p-catagory">Availability</td>
                                                 <td>
-                                                    <div class="p-stock">22 in stock</div>
+                                                    <div class="p-stock">{{ $product->qty }} in stock</div>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="p-catagory">Weight</td>
                                                 <td>
-                                                    <div class="p-weight">1,3kg</div>
+                                                    <div class="p-weight">{{ $product->weight }}kg</div>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="p-catagory">Size</td>
                                                 <td>
-                                                    <div class="p-size">XL</div>
+                                                    <div class="p-size">
+                                                        @foreach(array_unique(array_column($product->productDetails->toArray(), 'size')) as $productSize)
+                                                            {{ $productSize }}
+                                                        @endforeach
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="p-catagory">Color</td>
                                                 <td>
-                                                    <span class="cs-color"></span>
+                                                    @foreach(array_unique(array_column($product->productDetails->toArray(), 'color')) as $productColor)
+                                                        <span class="cs-{{ $productColor }}"></span>
+                                                    @endforeach
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="p-catagory">Sku</td>
                                                 <td>
-                                                    <div class="p-code">00012</div>
+                                                    <div class="p-code">{{ $product->sku }}</div>
                                                 </td>
                                             </tr>
                                         </table>
@@ -326,49 +316,41 @@
                                 </div>
                                 <div class="tab-pane fade" id="tab-3" role="tabpanel">
                                     <div class="customer-review-option">
-                                        <h4>2 Comments</h4>
+                                        <h4>{{ count($product->productComments) }} Comments</h4>
                                         <div class="comment-option">
-                                            <div class="co-item">
-                                                <div class="avatar-pic">
-                                                    <img src="client/img/product-single/avatar-1.png" alt="">
-                                                </div>
-                                                <div class="avatar-text">
-                                                    <div class="at-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
+                                            @foreach($product->productComments as $productComment)
+                                                <div class="co-item">
+                                                    <div class="avatar-pic">
+                                                        <img src="client/img/product-single/{{ $productComment->user->avatar ?? 'default-avatar.jpg' }}" alt="">
                                                     </div>
-                                                    <h5>Brandon kelley <span>27 Aug 2023</span></h5>
-                                                    <div class="at-reply">Nice !</div>
-                                                </div>
-                                            </div>
-                                            <div class="co-item">
-                                                <div class="avatar-pic">
-                                                    <img src="client/img/product-single/avatar-2.png" alt="">
-                                                </div>
-                                                <div class="avatar-text">
-                                                    <div class="at-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
+                                                    <div class="avatar-text">
+                                                        <div class="at-rating">
+                                                            @for($i = 1; $i <= 5; $i++)
+                                                                @if($i <= $product->avgRating)
+                                                                    <i class="fa fa-star"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
+                                                            @endfor
+                                                            <span>({{ count($product->productComments) }})</span>
+                                                        </div>
+                                                        <h5>{{ $productComment->name }} <span>{{ date('M d, Y', strtotime($productComment->created_ad)) }}</span></h5>
+                                                        <div class="at-reply">{{ $productComment->messages }}</div>
                                                     </div>
-                                                    <h5>Brandon kelley <span>27 Aug 2023</span></h5>
-                                                    <div class="at-reply">Nice !</div>
                                                 </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                         <div class="personal-rating">
                                             <h6>Your Ratind</h6>
                                             <div class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
+                                                @for($i = 1; $i <= 5; $i++)
+                                                    @if($i <= $product->avgRating)
+                                                        <i class="fa fa-star"></i>
+                                                    @else
+                                                        <i class="fa fa-star-o"></i>
+                                                    @endif
+                                                @endfor
+                                                <span>({{ count($product->productComments) }})</span>
                                             </div>
                                         </div>
                                         <div class="leave-comment">
