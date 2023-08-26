@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -16,8 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // \App\Models\User::factory(10)->create();
+
         DB::table('users')->insert([
             [
+                'id' => 1,
                 'name' => 'CodeLean',
                 'email' => 'CodeLean@gmail.com',
                 'password' => Hash::make('123456'),
@@ -26,6 +28,7 @@ class DatabaseSeeder extends Seeder
                 'description' => null,
             ],
             [
+                'id' => 2,
                 'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('123456'),
@@ -34,6 +37,7 @@ class DatabaseSeeder extends Seeder
                 'description' => null,
             ],
             [
+                'id' => 3,
                 'name' => 'Shane Lynch',
                 'email' => 'ShaneLynch@gmail.com',
                 'password' => Hash::make('123456'),
@@ -42,6 +46,7 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud amodo'
             ],
             [
+                'id' => 4,
                 'name' => 'Brandon Kelley',
                 'email' => 'BrandonKelley@gmail.com',
                 'password' => Hash::make('123456'),
@@ -50,6 +55,7 @@ class DatabaseSeeder extends Seeder
                 'description' => null,
             ],
             [
+                'id' => 5,
                 'name' => 'Roy Banks',
                 'email' => 'RoyBanks@gmail.com',
                 'password' => Hash::make('123456'),
@@ -139,11 +145,12 @@ class DatabaseSeeder extends Seeder
 
         DB::table('products')->insert([
             [
+                'id' => 1,
                 'brand_id' => 1,
                 'product_category_id' => 2,
                 'name' => 'Pure Pineapple',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor sit amet, consectetur adipisicing elit, sed do mod tempor',
-                'content' => '',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
+                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 'price' => 629.99,
                 'qty' => 20,
                 'discount' => 495,
@@ -153,6 +160,7 @@ class DatabaseSeeder extends Seeder
                 'tag' => 'Clothing',
             ],
             [
+                'id' => 2,
                 'brand_id' => 2,
                 'product_category_id' => 2,
                 'name' => 'Guangzhou sweater',
@@ -167,6 +175,7 @@ class DatabaseSeeder extends Seeder
                 'tag' => 'Clothing',
             ],
             [
+                'id' => 3,
                 'brand_id' => 3,
                 'product_category_id' => 2,
                 'name' => 'Guangzhou sweater',
@@ -181,6 +190,7 @@ class DatabaseSeeder extends Seeder
                 'tag' => 'Clothing',
             ],
             [
+                'id' => 4,
                 'brand_id' => 4,
                 'product_category_id' => 1,
                 'name' => 'Microfiber Wool Scarf',
@@ -195,6 +205,7 @@ class DatabaseSeeder extends Seeder
                 'tag' => 'Accessories',
             ],
             [
+                'id' => 5,
                 'brand_id' => 1,
                 'product_category_id' => 3,
                 'name' => "Men's Painted Hat",
@@ -209,6 +220,7 @@ class DatabaseSeeder extends Seeder
                 'tag' => 'Accessories',
             ],
             [
+                'id' => 6,
                 'brand_id' => 1,
                 'product_category_id' => 2,
                 'name' => 'Converse Shoes',
@@ -223,6 +235,7 @@ class DatabaseSeeder extends Seeder
                 'tag' => 'Clothing',
             ],
             [
+                'id' => 7,
                 'brand_id' => 1,
                 'product_category_id' => 1,
                 'name' => 'Pure Pineapple',
@@ -237,6 +250,7 @@ class DatabaseSeeder extends Seeder
                 'tag' => 'HandBag',
             ],
             [
+                'id' => 8,
                 'brand_id' => 1,
                 'product_category_id' => 1,
                 'name' => '2 Layer Windbreaker',
@@ -251,6 +265,7 @@ class DatabaseSeeder extends Seeder
                 'tag' => 'Clothing',
             ],
             [
+                'id' => 9,
                 'brand_id' => 1,
                 'product_category_id' => 1,
                 'name' => 'Converse Shoes',
@@ -267,6 +282,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('product_images')->insert([
+            [
+                'product_id' => 1,
+                'path' => 'product-1.jpg',
+            ],
             [
                 'product_id' => 1,
                 'path' => 'product-1-1.jpg',
@@ -289,7 +308,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'product_id' => 3,
-                'path' => 'product-3-2.jpg',
+                'path' => 'product-2-2.jpg',
             ],
             [
                 'product_id' => 4,
@@ -476,3 +495,4 @@ class DatabaseSeeder extends Seeder
         ]);
     }
 }
+

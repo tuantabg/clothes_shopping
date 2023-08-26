@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Client\ShopController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,6 @@ Route::get('/', function () {
     return view('client.index');
 });
 
-Route::get('/shop/product/{id}', [\App\Http\Controllers\Client\ShopController::class, 'show']);
+Route::get('/shop/product/{id}', [ShopController::class, 'show'])->name('product-detail');
 
 
