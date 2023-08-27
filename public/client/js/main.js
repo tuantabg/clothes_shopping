@@ -247,4 +247,27 @@
 		$button.parent().find('input').val(newVal);
 	});
 
+    /*-------------------
+       Bộ lọc sản phẩm ở trang chủ
+   --------------------- */
+	const product_men = $('.product-slider.men');
+	const product_women = $('.product-slider.women');
+
+	$('.filter-control').on('click', '.item', function () {
+        const $item = $(this);
+        const filter = $item.data('tag');
+        const category = $item.data('category');
+
+        $item.siblings().removeClass('active');
+        $item.addClass('active');
+
+        if (category === 'men') {
+            product_men.owlcarousel2_filter(filter);
+        }
+
+        if (category === 'women') {
+            product_women.owlcarousel2_filter(filter);
+        }
+    })
+
 })(jQuery);

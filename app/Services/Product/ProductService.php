@@ -1,11 +1,11 @@
 <?php
 
 
-namespace App\Service\Product;
+namespace App\Services\Product;
 
 
 use App\Repositories\Product\ProductRepositoryInterface;
-use App\Service\BaseService;
+use App\Services\BaseService;
 
 class ProductService extends BaseService implements ProductServiceInterface
 {
@@ -30,5 +30,23 @@ class ProductService extends BaseService implements ProductServiceInterface
         $product->avgRating = $avgRating;
 
         return $product;
+    }
+
+    public function getRelatedProducts($product, $limit = 4)
+    {
+        return $this->repository->getRelatedProducts($product, $limit);
+    }
+
+    public function getFeaturedProducts()
+    {
+        return [
+            "men" => $this->repository->getFeaturedProductsByCategory(1),
+            "women" => $this->repository->getFeaturedProductsByCategory(2),
+        ];
+    }
+
+    public function getProductOnIndex()
+    {
+        return $this->repository->getProductOnIndex();
     }
 }

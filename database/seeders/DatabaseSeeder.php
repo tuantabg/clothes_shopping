@@ -71,48 +71,48 @@ class DatabaseSeeder extends Seeder
                 'title' => 'The Personality Trait That Makes People Happier',
                 'image' => 'blog-1.jpg',
                 'category' => 'TRAVEL',
-                'subtitle' => '',
-                'content' => '',
+                'subtitle' => 'The Personality Trait',
+                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             ],
             [
                 'user_id' => 3,
                 'title' => 'This was one of our first days in Hawaii last week.',
                 'image' => 'blog-2.jpg',
                 'category' => 'CodeLeanON',
-                'subtitle' => '',
-                'content' => '',
+                'subtitle' => 'our first days in Hawaii',
+                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             ],
             [
                 'user_id' => 3,
                 'title' => 'Last week I had my first work trip of the year to Sonoma Valley',
                 'image' => 'blog-3.jpg',
                 'category' => 'TRAVEL',
-                'subtitle' => '',
-                'content' => '',
+                'subtitle' => 'I had my first work trip of the Sonoma Valley',
+                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             ],
             [
                 'user_id' => 3,
                 'title' => 'Happppppy New Year! I know I am a little late on this post',
                 'image' => 'blog-4.jpg',
                 'category' => 'CodeLeanON',
-                'subtitle' => '',
-                'content' => '',
+                'subtitle' => 'Happppppy New Year!',
+                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             ],
             [
                 'user_id' => 3,
                 'title' => 'Absolue collection. The Lancome team has been one…',
                 'image' => 'blog-5.jpg',
                 'category' => 'MODEL',
-                'subtitle' => '',
-                'content' => '',
+                'subtitle' => 'Absolue collection.',
+                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             ],
             [
                 'user_id' => 3,
                 'title' => 'Writing has always been kind of therapeutic for me',
                 'image' => 'blog-6.jpg',
                 'category' => 'CodeLeanON',
-                'subtitle' => '',
-                'content' => '',
+                'subtitle' => 'Therapeutic methods',
+                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             ],
         ]);
 
@@ -157,7 +157,7 @@ class DatabaseSeeder extends Seeder
                 'weight' => 1.3,
                 'sku' => '00012',
                 'featured' => true,
-                'tag' => 'Clothing',
+                'tag' => 'Clothings',
             ],
             [
                 'id' => 2,
@@ -172,7 +172,7 @@ class DatabaseSeeder extends Seeder
                 'weight' => null,
                 'sku' => null,
                 'featured' => true,
-                'tag' => 'Clothing',
+                'tag' => 'Clothings',
             ],
             [
                 'id' => 3,
@@ -187,7 +187,7 @@ class DatabaseSeeder extends Seeder
                 'weight' => null,
                 'sku' => null,
                 'featured' => true,
-                'tag' => 'Clothing',
+                'tag' => 'Clothings',
             ],
             [
                 'id' => 4,
@@ -232,7 +232,7 @@ class DatabaseSeeder extends Seeder
                 'weight' => null,
                 'sku' => null,
                 'featured' => true,
-                'tag' => 'Clothing',
+                'tag' => 'Clothings',
             ],
             [
                 'id' => 7,
@@ -262,7 +262,7 @@ class DatabaseSeeder extends Seeder
                 'weight' => null,
                 'sku' => null,
                 'featured' => true,
-                'tag' => 'Clothing',
+                'tag' => 'Clothings',
             ],
             [
                 'id' => 9,
@@ -296,11 +296,19 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'product_id' => 2,
+                'path' => 'product-2.jpg',
+            ],
+            [
+                'product_id' => 2,
                 'path' => 'product-2-1.jpg',
             ],
             [
                 'product_id' => 2,
                 'path' => 'product-2-2.jpg',
+            ],
+            [
+                'product_id' => 3,
+                'path' => 'product-3.jpg',
             ],
             [
                 'product_id' => 3,
@@ -312,11 +320,19 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'product_id' => 4,
+                'path' => 'product-4.jpg',
+            ],
+            [
+                'product_id' => 4,
                 'path' => 'product-4-1.jpg',
             ],
             [
                 'product_id' => 4,
                 'path' => 'product-4-2.jpg',
+            ],
+            [
+                'product_id' => 5,
+                'path' => 'product-5.jpg',
             ],
             [
                 'product_id' => 5,
@@ -328,11 +344,19 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'product_id' => 6,
+                'path' => 'product-6.jpg',
+            ],
+            [
+                'product_id' => 6,
                 'path' => 'product-6-1.jpg',
             ],
             [
                 'product_id' => 6,
                 'path' => 'product-6-2.jpg',
+            ],
+            [
+                'product_id' => 7,
+                'path' => 'product-7.jpg',
             ],
             [
                 'product_id' => 7,
@@ -344,11 +368,19 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'product_id' => 8,
+                'path' => 'product-8.jpg',
+            ],
+            [
+                'product_id' => 8,
                 'path' => 'product-8-1.jpg',
             ],
             [
                 'product_id' => 8,
                 'path' => 'product-8-2.jpg',
+            ],
+            [
+                'product_id' => 9,
+                'path' => 'product-9.jpg',
             ],
             [
                 'product_id' => 9,

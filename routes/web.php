@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\ShopController;
+use App\Http\Controllers\Client\HomeController;
 
 
 /*
@@ -15,10 +16,12 @@ use App\Http\Controllers\Client\ShopController;
 |
 */
 
-Route::get('/', function () {
-    return view('client.index');
+Route::get('/', [HomeController::class , 'index']);
+
+
+Route::prefix('/shop')->group(function () {
+    Route::get('', [ShopController::class, 'index']);
+    Route::get('/product/{id}', [ShopController::class, 'show']);
+    Route::post('/product/{id}', [ShopController::class, 'postComment']);
 });
-
-Route::get('/shop/product/{id}', [ShopController::class, 'show'])->name('product-detail');
-
 

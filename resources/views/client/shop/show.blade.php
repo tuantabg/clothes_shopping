@@ -9,7 +9,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <a href="index.html"><i class="fa fa-home"></i> Home</a>
-                        <a href="shop.html">{{ $product->tag }}</a>
+                        <a href="index.blade.php">{{ $product->tag }}</a>
                         <span>{{ $product->name }}</span>
                     </div>
                 </div>
@@ -233,7 +233,7 @@
                             <ul class="nav" role="tablist">
                                 <li><a class="active" href="#tab-1" data-toggle="tab" role="tab">DESCRIPTION</a></li>
                                 <li><a href="#tab-2" data-toggle="tab" role="tab">SPECIFICATIONS</a></li>
-                                <li><a href="#tab-3" data-toggle="tab" role="tab">Customer Reviews (02)</a></li>
+                                <li><a href="#tab-3" data-toggle="tab" role="tab">Customer Reviews ({{ count($product->productComments) }})</a></li>
                             </ul>
                         </div>
                         <div class="tab-item-content">
@@ -332,39 +332,46 @@
                                                                     <i class="fa fa-star-o"></i>
                                                                 @endif
                                                             @endfor
-                                                            <span>({{ count($product->productComments) }})</span>
                                                         </div>
-                                                        <h5>{{ $productComment->name }} <span>{{ date('M d, Y', strtotime($productComment->created_ad)) }}</span></h5>
+                                                        <h5>{{ $productComment->name }} <span>{{ date('M d, Y', strtotime($productComment->created_at)) }}</span></h5>
                                                         <div class="at-reply">{{ $productComment->messages }}</div>
                                                     </div>
                                                 </div>
                                             @endforeach
                                         </div>
-                                        <div class="personal-rating">
-                                            <h6>Your Ratind</h6>
-                                            <div class="rating">
-                                                @for($i = 1; $i <= 5; $i++)
-                                                    @if($i <= $product->avgRating)
-                                                        <i class="fa fa-star"></i>
-                                                    @else
-                                                        <i class="fa fa-star-o"></i>
-                                                    @endif
-                                                @endfor
-                                                <span>({{ count($product->productComments) }})</span>
-                                            </div>
-                                        </div>
                                         <div class="leave-comment">
                                             <h4>Leave A Comment</h4>
-                                            <form action="" class="comment-form">
+                                            <form action="" method="post" class="comment-form">
+                                                @csrf
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <input type="hidden" name="user_id" value="{{ \Illuminate\Support\Facades\Auth::user()->id ?? null }}">
+
                                                 <div class="row">
                                                     <div class="col-lg-6">
-                                                        <input type="text" placeholder="Name">
+                                                        <input type="text" name="name" placeholder="Name">
                                                     </div>
                                                     <div class="col-lg-6">
-                                                        <input type="email" placeholder="Email">
+                                                        <input type="email" name="email" placeholder="Email">
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <textarea name="messages" placeholder="Messages" cols="30" rows="10"></textarea>
+
+                                                        <div class="personal-rating">
+                                                            <h6>Your Rating</h6>
+                                                            <div class="rate">
+                                                                <input type="radio" id="star5" name="rating" value="5" />
+                                                                <label for="star5" title="text">5 stars</label>
+                                                                <input type="radio" id="star4" name="rating" value="4" />
+                                                                <label for="star4" title="text">4 stars</label>
+                                                                <input type="radio" id="star3" name="rating" value="3" />
+                                                                <label for="star3" title="text">3 stars</label>
+                                                                <input type="radio" id="star2" name="rating" value="2" />
+                                                                <label for="star2" title="text">2 stars</label>
+                                                                <input type="radio" id="star1" name="rating" value="1" />
+                                                                <label for="star1" title="text">1 star</label>
+                                                            </div>
+                                                        </div>
+
                                                         <button type="submit" class="site-btn">Send message</button>
                                                     </div>
                                                 </div>
@@ -392,106 +399,42 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                @foreach($relatedProducts as $product)
+                    <div class="col-lg-3 col-md-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="client/img/products/product-1.jpg" alt="">
+                            <img src="client/img/products/{{ $product->productImages[0]->path }}" alt="">
+
+                            @if($product->discount != null)
+                                <div class="sale">Sale</div>
+                            @endif
+
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
                             </div>
                             <ul>
                                 <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="product.html">+ Quick View</a></li>
+                                <li class="quick-view"><a href="shop/product/{{ $product->id }}">+ Quick View</a></li>
                                 <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="category-name">Towel</div>
-                            <a href="#">
-                                <h5>Pure Pineapple</h5>
+                            <div class="category-name">{{ $product->tag }}</div>
+                            <a href="shop/product/{{ $product->id }}">
+                                <h5>{{ $product->name }}</h5>
                             </a>
                             <div class="product-price">
-                                $14.00
-                                <span>$35.00</span>
+                                @if($product->discount != null)
+                                    ${{ $product->discount }}
+                                    <span>${{ $product->price }}</span>
+                                @else
+                                    ${{ $product->price }}
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="client/img/products/product-2.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="product.html">+ Quick View</a></li>
-                                <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="category-name">Towel</div>
-                            <a href="#">
-                                <h5>Pure Pineapple</h5>
-                            </a>
-                            <div class="product-price">
-                                $14.00
-                                <span>$35.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="client/img/products/product-3.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="product.html">+ Quick View</a></li>
-                                <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="category-name">Towel</div>
-                            <a href="#">
-                                <h5>Pure Pineapple</h5>
-                            </a>
-                            <div class="product-price">
-                                $14.00
-                                <span>$35.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="client/img/products/product-4.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="product.html">+ Quick View</a></li>
-                                <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="category-name">Towel</div>
-                            <a href="#">
-                                <h5>Pure Pineapple</h5>
-                            </a>
-                            <div class="product-price">
-                                $14.00
-                                <span>$35.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

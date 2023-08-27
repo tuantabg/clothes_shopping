@@ -1440,6 +1440,17 @@ ol {
 	margin-bottom: 16px;
 }
 
+.single-latest-blog .latest-text p {
+    display: -webkit-box;
+    max-height: 3.2rem;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    line-height: 1.6rem;
+}
+
 .benefit-items {
 	border: 1px solid #ebebeb;
 	margin-top: 45px;

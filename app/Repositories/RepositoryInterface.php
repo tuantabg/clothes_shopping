@@ -4,7 +4,7 @@
 namespace App\Repositories;
 
 
-interface RepositoriesInterface
+interface RepositoryInterface
 {
     public function all();
     public function find(int $id);

@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
     <link rel="stylesheet" href="client/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="client/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="client/css/themify-icons.css" type="text/css">
@@ -22,6 +23,7 @@
     <link rel="stylesheet" href="client/css/nice-select.css" type="text/css">
     <link rel="stylesheet" href="client/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="client/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="client/css/rating.css" type="text/css">
     <link rel="stylesheet" href="client/css/style.css" type="text/css">
 </head>
 
@@ -175,8 +177,8 @@
             </div>
             <nav class="nav-menu mobile-menu">
                 <ul>
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
+                    <li class="{{ (request()->segment(1) == '') ? 'active' : '' }}"><a href="./">Home</a></li>
+                    <li class="{{ (request()->segment(1) == 'shop') ? 'active' : '' }}"><a href="./shop">Shop</a></li>
                     <li><a href="">Collection</a>
                         <ul class="dropdown">
                             <li><a href="">Men's</a></li>
@@ -320,6 +322,7 @@
 <script src="client/js/jquery.dd.min.js"></script>
 <script src="client/js/jquery.slicknav.js"></script>
 <script src="client/js/owl.carousel.min.js"></script>
+<script src="client/js/owlcarousel2-filter.min.js"></script>
 <script src="client/js/main.js"></script>
 </body>
 
