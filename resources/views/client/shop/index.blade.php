@@ -148,12 +148,23 @@
                         <div class="row">
                             <div class="col-lg-7 col-md-7">
                                 <div class="select-option">
-                                    <select class="sorting">
-                                        <option value="">Default sorting</option>
-                                    </select>
-                                    <select class="p-show">
-                                        <option value="">Show:</option>
-                                    </select>
+                                    <form action="">
+                                        <div class="select-option">
+                                            <select name="sort_by" onchange="this.form.submit();" class="sorting">
+                                                <option {{ request('sort_by') == 'latest' ? 'selected' : '' }} value="latest">Sorting: Latest</option>
+                                                <option {{ request('sort_by') == 'oldest' ? 'selected' : '' }} value="oldest">Sorting: Oldest</option>
+                                                <option {{ request('sort_by') == 'name-ascending' ? 'selected' : '' }} value="name-ascending">Sorting: Name A-Z</option>
+                                                <option {{ request('sort_by') == 'name-descending' ? 'selected' : '' }} value="name-descending">Sorting: Name Z-A</option>
+                                                <option {{ request('sort_by') == 'price-ascending' ? 'selected' : '' }} value="price-ascending">Sorting: Price Ascending</option>
+                                                <option {{ request('sort_by') == 'price-descending' ? 'selected' : '' }} value="price-descending">Sorting: Price Decrease</option>
+                                            </select>
+                                            <select name="show" onchange="this.form.submit();" class="p-show">
+                                                <option {{ request('show') == '6' ? 'selected' : '' }} value="6">span 06</option>
+                                                <option {{ request('show') == '9' ? 'selected' : '' }} value="9">Show: 09</option>
+                                                <option {{ request('show') == '15' ? 'selected' : '' }} value="15">Show: 15</option>
+                                            </select>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-lg-5 col-md-5 text-right">

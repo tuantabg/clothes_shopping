@@ -174,7 +174,7 @@
     <section class="man-banner spad">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8 offset-lg-1">
+                <div class="col-lg-8">
                     <div class="filter-control">
                         <ul>
                             <li class="item active" data-tag="*" data-category="men">All</li>
@@ -221,7 +221,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 offset-lg-1">
                     <div class="product-large set-bg" data-setbg="client/img/products/man-large.jpg">
                         <h2>Man's</h2>
                         <a href="#">Discover More</a>
